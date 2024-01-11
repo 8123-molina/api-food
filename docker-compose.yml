@@ -1,0 +1,20 @@
+version: '3.3'
+
+services:
+  food-db:
+    image: mysql:8
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    container_name: 'food-db'
+    restart: always
+    volumes:
+      - food-db:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: food-db
+      MYSQL_USER: 'root'
+      MYSQL_ROOT_PASSWORD: 'root'
+    
+volumes:
+  food-db:
